@@ -1,8 +1,10 @@
 from transformers import AutoModelForSpeechSeq2Seq, AutoProcessor, pipeline
 from huggingface_hub import login
+import warnings
 import torch
 import os
 
+warnings.filterwarnings("ignore")
 login("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")
 
 os.environ["WANDB_DISABLED"] = "true"

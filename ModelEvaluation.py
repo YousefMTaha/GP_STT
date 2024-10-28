@@ -35,10 +35,6 @@ test_data = test_data.map(
 wer_metric = evaluate.load("wer")
 
 
-def remove_punctuation(text):
-    return text.translate(str.maketrans('', '', string.punctuation))
-
-
 def compute_wer(dataset, num_of_samples: int):
     references = []
     predictions = []
