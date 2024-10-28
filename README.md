@@ -9,7 +9,7 @@ This project implements a speech-to-text model using OpenAI's Whisper architectu
 - Configured for English language transcription.
 - Removes unnecessary metadata from the dataset for optimized performance.
 
-## OpenAi Whisper Links
+# Model Links
 
 Official Website
 ```bash
@@ -21,30 +21,35 @@ Huggingface
 https://huggingface.co/openai/whisper-large-v3
 ```
 
-# Evaluation's Dataset
+## Evaluation's Dataset
 
 ```bash
 https://huggingface.co/datasets/mozilla-foundation/common_voice_17_0
 ```
 
-## Installation
+# Installation
 
 First, clone the repo:
+
 ```bash
 git clone https://github.com/YousefMTaha/GP-STT
 ```
 
 Second, create python virtual environment and activate it:
+
 ```bash
 python3 -m venv venv
 .\venv/Scripts/activate.
 ```
 
-Last, install the required dependencies by running one of these two commands:
+Third, install the required dependencies by running one of these two commands:
+
 ```bash
 pip install jiwer flask torch librosa datasets evaluate torchaudio transformers huggingface_hub 'accelerate>=0.26.0'
 ```
+
 Or
+
 ```bash
 pip install jiwer
 pip install flask
