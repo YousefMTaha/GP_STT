@@ -10,7 +10,7 @@ login("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")
 os.environ["WANDB_DISABLED"] = "true"
 device = "cuda:0" if torch.cuda.is_available() else "cpu"
 torch_dtype = torch.float32
-model_name = "openai/whisper-tiny"
+model_name = "openai/whisper-large-v3-turbo"
 dataset_name = "mozilla-foundation/common_voice_17_0"
 const_inputs = "input_values"
 const_input_ids = "input_ids"
@@ -41,6 +41,7 @@ def get_pipeline(model, processor):
         feature_extractor=processor.feature_extractor,
         torch_dtype=torch_dtype,
         device=device,
+        return_timestamps=True
     )
 
 
