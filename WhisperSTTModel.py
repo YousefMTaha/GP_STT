@@ -5,12 +5,12 @@ import torch
 import os
 
 warnings.filterwarnings("ignore")
-login("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")
+login("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")
 
 os.environ["WANDB_DISABLED"] = "true"
 device = "cuda:0" if torch.cuda.is_available() else "cpu"
 torch_dtype = torch.float32
-model_name = "openai/whisper-large-v3-turbo"
+model_name = "openai/whisper-large-v3"
 dataset_name = "mozilla-foundation/common_voice_17_0"
 const_inputs = "input_values"
 const_input_ids = "input_ids"
@@ -23,13 +23,14 @@ def init_model_and_processor():
     processor = AutoProcessor.from_pretrained(model_name)
 
     model = AutoModelForSpeechSeq2Seq.from_pretrained(
-        model_name, torch_dtype=torch_dtype, low_cpu_mem_usage=True, use_safetensors=True,
+        model_name, torch_dtype=torch_dtype, low_cpu_mem_usage=True, use_safetensors=True
     )
 
     model.to(device)
 
     model.generation_config.language = "en"
     model.generation_config.task = "transcribe"
+    model.generation_config.forced_decoder_ids = None
     return model, processor
 
 
