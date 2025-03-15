@@ -1,16 +1,17 @@
 from transformers import AutoModelForSpeechSeq2Seq, AutoProcessor, pipeline
-from huggingface_hub import login
+# from huggingface_hub import login
 import warnings
 import torch
 import os
 
 warnings.filterwarnings("ignore")
-login("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")
+# login("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")
 
 os.environ["WANDB_DISABLED"] = "true"
 device = "cuda:0" if torch.cuda.is_available() else "cpu"
+print(device)
 torch_dtype = torch.float32
-model_name = "openai/whisper-large-v3"
+model_name = "openai/whisper-large-v3-turbo"
 dataset_name = "mozilla-foundation/common_voice_17_0"
 const_inputs = "input_values"
 const_input_ids = "input_ids"
